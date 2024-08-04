@@ -5,16 +5,50 @@
 <section class="pb-3 pb-e-lg-30">
 		<script data-cfasync="false" src="https://assets.jable.tv/assets/js/player.js"></script>
 		<div class="plyr__video-embed" id="player">
-			<iframe src="https://player.vimeo.com/video/你的影片ID" allowfullscreen="allowfullscreen" allowtransparency="allowtransparency" allow="autoplay"></iframe>
+			<iframe
+				src="https://player.vimeo.com/video/994413148?title=0&byline=0&portrait=0&badge=0"
+				allowfullscreen
+				allowtransparency
+				allow="autoplay"
+				style="width:100%; height:100%; position:absolute; top:0; left:0; border:none;">
+			</iframe>
 		</div>
 		<script>
 			new Plyr('#player', {
-				ratio: '16:9',
-				fullscreen: {enabled: true, fallback: true, iosNative: true},
-				ads: {enabled: true, tagUrl: 'https://syndication.exosrv.com/splash.php?idzone=3377419'},
-				previewThumbnails: {enabled: false}
+				fullscreen: {
+					enabled: true,
+					fallback: true,
+					iosNative: true
+				},
+				ads: {
+					enabled: true,
+					tagUrl: 'https://syndication.exosrv.com/splash.php?idzone=3377419'
+				},
+				previewThumbnails: {
+					enabled: false
+				}
 			});
 		</script>
-</section>
+	</section>
+	<style>
+		.plyr__video-embed {
+			position: relative;
+			padding-bottom: 56.25%; /* 16:9比例 */
+			height: 0;
+			overflow: hidden;
+			max-width: 100%;
+			background: #000;
+		}
+
+		.plyr__video-embed iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+	</style>
 ```
 * 本專案使用Viemo上傳影片，並嵌入至index.html
